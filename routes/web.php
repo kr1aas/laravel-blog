@@ -6,7 +6,7 @@ use App\Http\Controllers\CHome;
 use App\Http\Controllers\CPost;
 use App\Http\Controllers\CAbout;
 use App\Http\Controllers\CAuthor;
-use App\Http\Controllers\CCategory;
+use App\Http\Controllers\CCategories;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,6 +28,8 @@ Route::get('/posts', [CPost::class,'index']);
 //halaman single post 
 Route::get('/posts/{post:slug}', [CPost::class,'single']);
 //halaman category
-Route::get('/category/{category:slug}', [CCategory::class,'category']);
+Route::get('/category/{category:slug}', [CPost::class,'category']);
 //halaman author
 Route::get('/author/{user:username}', [CAuthor::class,'user']);
+//halaman categories
+Route::get('/categories', [CCategories::class,'categories']);

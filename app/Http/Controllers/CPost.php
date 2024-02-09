@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class CPost extends Controller
@@ -12,7 +13,7 @@ class CPost extends Controller
 
         return view('posts', [
             "title" => "Posts",
-            "posts" => Post::with(['user','category'])->latest()->get(),
+            "posts" => Post::latest()->get(),
             "judul" => "Halaman Post"
         ]);
     }
@@ -22,6 +23,15 @@ class CPost extends Controller
         return view('post', [
             "title" => "Single Post",
             "post" => $post
+        ]);
+    }
+
+    public function category(Category $category) {
+        return view('posts', [
+            "title" => "Categories",
+            "posts" => $category->post->load(['category','user']),
+            "category" => $category->name,
+            "judul" => "Post Category: $category->name"
         ]);
     }
 }

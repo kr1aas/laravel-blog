@@ -2,3 +2,46 @@ nav.navbar {
     background: #96B6C5;
 }
 
+.img-fluids {
+    height: 270px;
+    width: 300px;
+    max-width: 100%;
+    object-fit: cover;
+}
+
+.card-kris {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10.5px);
+    -webkit-backdrop-filter: blur(10.5px);
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.table-responsive {
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.list-responsive {
+    display: none;
+    list-style: none;
+    padding: 0;
+}
+
+
+@media (max-width: 767px) {
+    .table-responsive {
+        display: none;
+    }
+
+    .list-responsive {
+        display: block;
+
+    }
+
+    .list-responsive li {
+        margin: 0;
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+    }
+}
